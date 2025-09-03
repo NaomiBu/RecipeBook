@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">RecipeBook</string>
+    <string name="homepage_title">Kitchen Chronicles</string>
+    <string name="recipe_one">Mexican Burrito</string>
+    <string name="recipe_two">Chicken Katsu Curry</string>
+    <string name="recipe_three">Waakye</string>
+    <string name="recipe_four">Lasagne</string>
+    <string name="recipe_five">Lamb Biryani</string>
+    <string name="burrito_description">Description: A delicious, customizable burrito packed
+        with fluffy rice, savory beans, tender protein, and fresh toppings.
+        Perfect for lunch or dinner, it’s easy to make, satisfying, and
+        bursting with flavors in every bite. Wrap it up and enjoy a handheld
+        meal that’s both hearty and comforting.</string>
+    <string-array name="burrito_ingredients">
+        <item> 1 cup black beans (cooked)</item>
+        <item> 2 large flour tortillas</item>
+        <item> 1 cup cooked rice</item>
+        <item> 1 cup cooked chicken or beef (optional)</item>
+        <item> ½ cup shredded cheese</item>
+        <item> ¼ cup salsa </item>
+        <item> ¼ cup sour cream </item>
+        <item> Lettuce, chopped</item>
+        <item>1 tbsp olive oil </item>
+        <item>Salt and pepper to taste </item>
+    </string-array>
+    <string-array name="burrito_steps">
+        <item> Heat olive oil in a pan over medium heat.</item>
+        <item> Warm tortillas for 20–30 seconds on each side. </item>
+        <item> Lay the tortilla flat and layer rice, beans, and protein in the center.</item>
+        <item> Sprinkle shredded cheese on top.</item>
+        <item> Add salsa, sour cream, and lettuce.</item>
+        <item> Fold the sides of the tortilla inwards, then roll it tightly from the bottom.</item>
+        <item> Serve warm, optionally cut in half. </item>
+    </string-array>
+
+
 </resources>
