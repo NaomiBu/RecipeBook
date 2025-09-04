@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -162,10 +164,10 @@ fun Homescreen (onNextScreen: (String) -> Unit, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = stringResource(R.string.homepage_title),
-            fontSize = 30.sp,
+            fontSize = 50.sp,
             fontFamily = FontFamily.Cursive,
             modifier = Modifier
-                .padding(bottom = 40.dp, top = 20.dp)
+                .padding(bottom = 40.dp, top = 30.dp)
         )
         Button( modifier = Modifier
                     .padding(bottom = 18.dp)
@@ -231,10 +233,6 @@ fun Mexican_Burrito (onNextScreen: (String) -> Unit, modifier: Modifier = Modifi
     val steps = context.resources.getStringArray(R.array.burrito_steps)
     val scrollState = rememberScrollState()
 
-// Column (modifier = Modifier
-//     .verticalScroll(scrollState)
-//     .fillMaxSize()
-// )
     Column (modifier = Modifier
         .fillMaxSize()
         .verticalScroll(scrollState),
@@ -283,6 +281,8 @@ fun Mexican_Burrito (onNextScreen: (String) -> Unit, modifier: Modifier = Modifi
              contentDescription = "Image of Burrito",
              modifier = Modifier
                 .align(Alignment.CenterHorizontally)
+                 .size(350.dp),
+                contentScale = ContentScale.Crop
 
          )
          Text(
@@ -335,37 +335,104 @@ fun Mexican_Burrito (onNextScreen: (String) -> Unit, modifier: Modifier = Modifi
 fun Chicken_Katsu_Curry (onNextScreen: (String) -> Unit, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val recipes = context.resources.getStringArray(R.array.recipes)
-    Column (){
-        Button(onClick = { onNextScreen("home") }) {
-            Text(text = "home")
-        }
-        val context = LocalContext.current
-        val ingredients = context.resources.getStringArray(R.array.chicken_katsu_curry_ingredients)
-        val steps = context.resources.getStringArray(R.array.chicken_katsu_curry_steps)
-        Text(
-            text =  recipes[1]
+    val ingredients = context.resources.getStringArray(R.array.chicken_katsu_curry_ingredients)
+    val steps = context.resources.getStringArray(R.array.chicken_katsu_curry_steps)
+    val scrollState = rememberScrollState()
+
+    Column (modifier = Modifier
+        .fillMaxSize()
+        .verticalScroll(scrollState),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Row (modifier = Modifier
         )
-        Image(
-            painter = painterResource(R.drawable.chicken_katsu),
-            contentDescription = "Image of Chicken Katsu Curry"
+        {Text(
+            text = stringResource(R.string.homepage_title),
+            fontSize = 30.sp,
+            fontFamily = FontFamily.Cursive,
+            modifier = Modifier
+                .padding(bottom = 40.dp, top = 20.dp, end = 50.dp)
         )
-        Text(
-            text = stringResource(R.string.chicken_katsu_curry_description)
-        )
-        LazyColumn {
-            // Add a single item
-            ingredients.forEach {
-                    ingredient -> item { Text(text = ingredient)}
+            Button( modifier = Modifier
+                .padding(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(R.color.maximum_green),     // Background
+                    contentColor = Color.White),
+                onClick = { onNextScreen("home") }) {
+                Icon( modifier = Modifier
+                    .size(18.dp),
+                    painter =  painterResource(R.drawable.home),
+                    contentDescription = "Home",
+
+                    )
+
+            }}
+
+
+        Column (modifier = Modifier
+            .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally)
+        {
+            Text(
+                text =  recipes[1],
+                modifier = Modifier
+                    .padding(bottom = 18.dp),
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp
+
+            )
+            Image(
+                painter = painterResource(R.drawable.chicken_katsu),
+                contentDescription = "Image of Chicken Katsu Curry",
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .size(350.dp),
+                    contentScale = ContentScale.Crop
+
+            )
+            Text(
+                text = stringResource(R.string.chicken_katsu_curry_description),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 18.dp, bottom = 18.dp, start = 20.dp, end = 20.dp),
+                textAlign = TextAlign.Left
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                text = stringResource(R.string.ingredients)
+            )
+            Column (modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+            ) {
+                // Add a single item
+                ingredients.forEach {
+                        ingredient ->  Text(text = "• $ingredient")
+                }
+
+            }
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                text = stringResource(R.string.steps)
+            )
+            Column (modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+            ){
+                // Add a single item
+                steps.forEach {
+                        step -> Text(text = "• $step")
+                }
+
             }
 
         }
-        LazyColumn {
-            // Add a single item
-            steps.forEach {
-                    step -> item { Text(text = step)}
-            }
 
-        }
 
     }
 }
@@ -373,118 +440,321 @@ fun Chicken_Katsu_Curry (onNextScreen: (String) -> Unit, modifier: Modifier = Mo
 
 @Composable
 fun Waakye (onNextScreen: (String) -> Unit, modifier: Modifier = Modifier) {
-    val context = LocalContext.current
-    val recipes = context.resources.getStringArray(R.array.recipes)
-    Column (){
-        Button(onClick = { onNextScreen("home") }) {
-            Text(text = "home")
-        }
         val context = LocalContext.current
+        val recipes = context.resources.getStringArray(R.array.recipes)
         val ingredients = context.resources.getStringArray(R.array.waakye_ingredients)
         val steps = context.resources.getStringArray(R.array.waakye_steps)
-        Text(
-            text =  recipes[2]
-        )
-        Image(
-            painter = painterResource(R.drawable.waakye),
-            contentDescription = "Image of Waakye"
-        )
-        Text(
-            text = stringResource(R.string.waakye_description)
-        )
-        LazyColumn {
-            // Add a single item
-            ingredients.forEach {
-                    ingredient -> item { Text(text = ingredient)}
+        val scrollState = rememberScrollState()
+
+        Column (modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Row (modifier = Modifier
+            )
+            {Text(
+                text = stringResource(R.string.homepage_title),
+                fontSize = 30.sp,
+                fontFamily = FontFamily.Cursive,
+                modifier = Modifier
+                    .padding(bottom = 40.dp, top = 20.dp, end = 50.dp)
+            )
+                Button( modifier = Modifier
+                    .padding(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(R.color.maximum_green),     // Background
+                        contentColor = Color.White),
+                    onClick = { onNextScreen("home") }) {
+                    Icon( modifier = Modifier
+                        .size(18.dp),
+                        painter =  painterResource(R.drawable.home),
+                        contentDescription = "Home",
+
+                        )
+
+                }}
+
+
+            Column (modifier = Modifier
+                .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally)
+            {
+                Text(
+                    text =  recipes[2],
+                    modifier = Modifier
+                        .padding(bottom = 18.dp),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+
+                )
+                Image(
+                    painter = painterResource(R.drawable.waakye),
+                    contentDescription = "Image of Waakye",
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .size(350.dp),
+                        contentScale = ContentScale.Crop
+
+                )
+                Text(
+                    text = stringResource(R.string.waakye_description),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 18.dp, start = 20.dp, end = 20.dp),
+                    textAlign = TextAlign.Left
+                )
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.ingredients)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ) {
+                    // Add a single item
+                    ingredients.forEach {
+                            ingredient ->  Text(text = "• $ingredient")
+                    }
+
+                }
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.steps)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ){
+                    // Add a single item
+                    steps.forEach {
+                            step -> Text(text = "• $step")
+                    }
+
+                }
+
             }
 
-        }
-        LazyColumn {
-            // Add a single item
-            steps.forEach {
-                    step -> item { Text(text = step)}
-            }
 
         }
-
     }
-}
 
 @Composable
 fun Lasagne (onNextScreen: (String) -> Unit, modifier: Modifier = Modifier) {
-    val context = LocalContext.current
-    val recipes = context.resources.getStringArray(R.array.recipes)
-    Column (){
-        Button(onClick = { onNextScreen("home") }) {
-            Text(text = "home")
-        }
         val context = LocalContext.current
+        val recipes = context.resources.getStringArray(R.array.recipes)
         val ingredients = context.resources.getStringArray(R.array.lasagne_ingredients)
         val steps = context.resources.getStringArray(R.array.lasagne_steps)
-        Text(
-            text =  recipes[3]
-        )
-        Image(
-            painter = painterResource(R.drawable.lasagne),
-            contentDescription = "Image of Lasagne"
-        )
-        Text(
-            text = stringResource(R.string.lasagne_description)
-        )
-        LazyColumn {
-            // Add a single item
-            ingredients.forEach {
-                    ingredient -> item { Text(text = ingredient)}
+        val scrollState = rememberScrollState()
+
+        Column (modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Row (modifier = Modifier
+            )
+            {Text(
+                text = stringResource(R.string.homepage_title),
+                fontSize = 30.sp,
+                fontFamily = FontFamily.Cursive,
+                modifier = Modifier
+                    .padding(bottom = 40.dp, top = 20.dp, end = 50.dp)
+            )
+                Button( modifier = Modifier
+                    .padding(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(R.color.maximum_green),     // Background
+                        contentColor = Color.White),
+                    onClick = { onNextScreen("home") }) {
+                    Icon( modifier = Modifier
+                        .size(18.dp),
+                        painter =  painterResource(R.drawable.home),
+                        contentDescription = "Home",
+
+                        )
+
+                }}
+
+
+            Column (modifier = Modifier
+                .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally)
+            {
+                Text(
+                    text =  recipes[3],
+                    modifier = Modifier
+                        .padding(bottom = 18.dp),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+
+                )
+                Image(
+                    painter = painterResource(R.drawable.lasagne),
+                    contentDescription = "Image of Lasagne",
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .size(350.dp),
+                        contentScale = ContentScale.Crop
+
+                )
+                Text(
+                    text = stringResource(R.string.lasagne_description),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 18.dp, start = 20.dp, end = 20.dp),
+                    textAlign = TextAlign.Left
+                )
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.ingredients)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ) {
+                    // Add a single item
+                    ingredients.forEach {
+                            ingredient ->  Text(text = "• $ingredient")
+                    }
+
+                }
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.steps)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ){
+                    // Add a single item
+                    steps.forEach {
+                            step -> Text(text = "• $step")
+                    }
+
+                }
+
             }
 
-        }
-        LazyColumn {
-            // Add a single item
-            steps.forEach {
-                    step -> item { Text(text = step)}
-            }
 
         }
-
     }
-}
 
 @Composable
 fun Lamb_Biryani (onNextScreen: (String) -> Unit, modifier: Modifier = Modifier) {
-    val context = LocalContext.current
-    val recipes = context.resources.getStringArray(R.array.recipes)
-    Column (){
-        Button(onClick = { onNextScreen("home") }) {
-            Text(text = "home")
-        }
         val context = LocalContext.current
+        val recipes = context.resources.getStringArray(R.array.recipes)
         val ingredients = context.resources.getStringArray(R.array.lamb_biryani_ingredients)
         val steps = context.resources.getStringArray(R.array.lamb_biryani_steps)
-        Text(
-            text =  recipes[4]
-        )
-        Image(
-            painter = painterResource(R.drawable.lamb_biryani),
-            contentDescription = "Image of Lasagne"
-        )
-        Text(
-            text = stringResource(R.string.lamb_biryani_description)
-        )
-        LazyColumn {
-            // Add a single item
-            ingredients.forEach {
-                    ingredient -> item { Text(text = ingredient)}
+        val scrollState = rememberScrollState()
+
+        Column (modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Row (modifier = Modifier
+            )
+            {Text(
+                text = stringResource(R.string.homepage_title),
+                fontSize = 30.sp,
+                fontFamily = FontFamily.Cursive,
+                modifier = Modifier
+                    .padding(bottom = 40.dp, top = 20.dp, end = 50.dp)
+            )
+                Button( modifier = Modifier
+                    .padding(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(R.color.maximum_green),     // Background
+                        contentColor = Color.White),
+                    onClick = { onNextScreen("home") }) {
+                    Icon( modifier = Modifier
+                        .size(18.dp),
+                        painter =  painterResource(R.drawable.home),
+                        contentDescription = "Home",
+
+                        )
+
+                }}
+
+
+            Column (modifier = Modifier
+                .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally)
+            {
+                Text(
+                    text =  recipes[4],
+                    modifier = Modifier
+                        .padding(bottom = 18.dp),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+
+                )
+                Image(
+                    painter = painterResource(R.drawable.lamb_biryani),
+                    contentDescription = "Image of Lamb Biryani",
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .size(350.dp),
+                        contentScale = ContentScale.Crop
+
+                )
+                Text(
+                    text = stringResource(R.string.lamb_biryani_description),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 18.dp, start = 20.dp, end = 20.dp),
+                    textAlign = TextAlign.Left
+                )
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.ingredients)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ) {
+                    // Add a single item
+                    ingredients.forEach {
+                            ingredient ->  Text(text = "• $ingredient")
+                    }
+
+                }
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp, bottom = 2.dp, start = 20.dp, end = 20.dp),
+                    text = stringResource(R.string.steps)
+                )
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 10.dp, start = 20.dp, end = 20.dp),
+                ){
+                    // Add a single item
+                    steps.forEach {
+                            step -> Text(text = "• $step")
+                    }
+
+                }
+
             }
 
-        }
-        LazyColumn {
-            // Add a single item
-            steps.forEach {
-                    step -> item { Text(text = step)}
-            }
+
         }
     }
-}
 
 
 @Preview(showBackground = true)
