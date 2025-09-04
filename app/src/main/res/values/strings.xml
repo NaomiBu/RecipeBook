@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">RecipeBook</string>
     <string name="homepage_title">Kitchen Chronicles</string>
-    <string name="recipe_one">Mexican Burrito</string>
-    <string name="recipe_two">Chicken Katsu Curry</string>
-    <string name="recipe_three">Waakye</string>
-    <string name="recipe_four">Lasagne</string>
-    <string name="recipe_five">Lamb Biryani</string>
+    <string-array name="recipes">
+        <item name="recipe_one">Mexican Burrito</item>
+        <item name="recipe_two">Chicken Katsu Curry</item>
+        <item name="recipe_three">Waakye</item>
+        <item name="recipe_four">Lasagne</item>
+        <item name="recipe_five">Lamb Biryani</item>
+    </string-array>
+
     <string name="burrito_description">Description: A delicious, customizable burrito packed
         with fluffy rice, savory beans, tender protein, and fresh toppings.
         Perfect for lunch or dinner, it’s easy to make, satisfying, and
@@ -33,5 +36,118 @@
         <item> Serve warm, optionally cut in half. </item>
     </string-array>
 
+    <string name="chicken_katsu_curry_description"> Chicken katsu curry is a popular Japanese comfort dish
+        consisting of a crispy, panko-breaded chicken cutlet served with a sweet, mild, and aromatic
+        Japanese curry sauce, typically over a bed of white rice. The chicken is deeply fried until
+        golden brown, contrasting with the smooth, luxurious texture of the warm, fruity curry. </string>
+    <string-array name="chicken_katsu_curry_ingredients">
+        <item> Chicken breasts </item>
+        <item> Salt and pepper </item>
+        <item> Flour, eggs, panko breadcrumbs </item>
+        <item> Oil (for frying) </item>
+        <item> Onion, carrot, garlic, ginger </item>
+        <item> Curry powder, flour, chicken stock </item>
+        <item> Soy sauce, honey, ketchup </item>
+        <item> Rice (to serve) </item>
+    </string-array>
+    <string-array name="chicken_katsu_curry_steps">
+        <item> Pound chicken breasts until even thickness.</item>
+        <item> Season with salt and pepper. </item>
+        <item> Coat each piece in flour → dip in beaten egg → coat in panko breadcrumbs.</item>
+        <item>Fry in hot oil (about 170–180 °C / 340–355 °F) until golden brown and cooked through.
+            Drain on paper towel. Sauté chopped onion, carrot, garlic, and ginger in a little oil until soft.</item>
+        <item> Stir in curry powder and flour, cook 1 min.</item>
+        <item> Gradually add chicken stock, stirring until smooth.</item>
+        <item> Add soy sauce, honey, and ketchup. Simmer 10–15 mins until thickened. </item>
+    </string-array>
+
+    <string name="waakye_description"> Waakye is a Ghanaian dish of rice and beans,
+        cooked with sorghum leaves (waakye leaves) that give it a brown color and earthy flavor.
+        It’s usually served with sides like stew, shito (spicy sauce), fried plantain, spaghetti,
+        gari, boiled eggs, and meat or fish — making it a hearty, complete meal.</string>
+    <string-array name="waakye_ingredients">
+        <item> Beans (traditionally black-eyed peas)</item>
+        <item> Rice (white rice like jasmine or basmati) </item>
+        <item> Sorghum Leaves (Waakye Leaves) </item>
+        <item> Salt </item>
+        <item> Coconut Oil </item>
+        <item> Baking Soda or Kaun </item>
+        <item> Stew (tomato-based, with meat, fish, or shito) </item>
+        <item> Boiled Eggs </item>
+        <item> Salad (cabbage, onions, tomatoes) </item>
+        <item> Spaghetti (Talia) </item>
+        <item> Fried Plantains </item>
+        <item> Garri (ground cassava flakes) </item>
+    </string-array>
+    <string-array name="waakye_steps">
+        <item> Soak and cook beans with waakye leaves (or a pinch of baking soda) until tender.</item>
+        <item> Add rice to the beans, season with salt, and cook until rice is soft and water is absorbed.</item>
+        <item> Remove leaves, fluff, and serve with sides like stew, shito, plantain, boiled eggs, or meat/fish</item>
+    </string-array>
+
+    <string name="lasagne_description">Lasagne is a classic Italian baked pasta dish made of layers
+        of wide flat pasta sheets, rich meat or vegetable sauce, creamy béchamel or ricotta cheese,
+        and melted cheese on top. It’s hearty, flavorful, and perfect for family meals or special occasions.</string>
+    <string-array name="lasagne_ingredients">
+        <item> 500g ground beef (or a mix of beef and pork) </item>
+        <item> 1 onion, finely chopped </item>
+        <item> 2 garlic cloves, minced </item>
+        <item> 400g canned tomatoes (or fresh, chopped) </item>
+        <item> 1 tsp dried oregano </item>
+        <item> 1 tsp dried basil </item>
+        <item> Salt and pepper, to taste </item>
+        <item> 2 tbsp olive oil </item>
+        <item> 50g butter </item>
+        <item> 50g all-purpose flour </item>
+        <item> 500ml milk </item>
+        <item> Pinch of nutmeg </item>
+        <item> 9–12 lasagne sheets (pre-cooked or no-boil type) </item>
+        <item> 200g grated mozzarella cheese </item>
+    </string-array>
+    <string-array name="lasagne_steps">
+        <item> Preheat oven to 180°C (350°F).</item>
+        <item> Cook onions and garlic in olive oil until soft.</item>
+        <item> Add ground meat, cook until browned, then stir in tomatoes, tomato paste, herbs, salt,
+            and pepper; simmer 15–20 minutes.</item>
+        <item> Make béchamel: melt butter, whisk in flour, gradually add milk, season with salt, pepper, and nutmeg. </item>
+        <item> Layer meat sauce, lasagne sheets, béchamel, and mozzarella in a baking dish; repeat
+            and top with béchamel, mozzarella, and Parmesan. </item>
+        <item> Layer meat sauce, lasagne sheets, béchamel, and mozzarella in a baking dish; repeat
+            and top with béchamel, mozzarella, and Parmesan. </item>
+        <item> Cover with foil and bake 25 minutes, remove foil and bake 15 more minutes until golden. </item>
+        <item> Let rest 10 minutes, then serve </item>
+    </string-array>
+
+    <string name="lamb_biryani_description">Lamb biryani is a fragrant and flavorful South Asian
+        rice dish made by layering tender, spiced lamb with long-grain basmati rice, aromatic herbs,
+        and sometimes saffron or fried onions. It is slow-cooked to allow the flavors to meld,
+        resulting in a rich, savory, and slightly spicy meal that is both hearty and aromatic,
+        often served with raita, salad, or chutney.</string>
+    <string-array name="lamb_biryani_ingredients">
+        <item> 500g lamb, cut into chunks </item>
+        <item> 2 cups basmati rice </item>
+        <item> 2 large onions, thinly sliced </item>
+        <item> 2 tomatoes, chopped </item>
+        <item> 4 cloves garlic, minced </item>
+        <item> 1-inch piece ginger, grated </item>
+        <item> 1 cup yogurt </item>
+        <item> 3 tbsp cooking oil or ghee </item>
+        <item> 1 tsp cumin seeds </item>
+        <item> 2 green chilies, slit </item>
+        <item> 1 tsp garam masala </item>
+        <item> Fresh coriander </item>
+    </string-array>
+    <string-array name="lamb_biryani_steps">
+        <item> Mix lamb chunks with yogurt, turmeric, chili powder, and salt. Let it sit for 30 minutes.</item>
+        <item> Boil water with a pinch of salt and whole spices (cardamom, cloves, cinnamon).
+            Cook rice until 70% done, then drain.</item>
+        <item> Heat oil/ghee in a large pan, sauté cumin seeds, garlic, ginger, and green chilies.
+            Add onions and cook until golden brown.</item>
+        <item> Add marinated lamb to the pan, cook until the lamb is browned and partially cooked.
+            Add tomatoes, coriander powder, and garam masala. Simmer until lamb is tender. </item>
+        <item> In a large pot, layer half the rice, then the lamb mixture, then the remaining rice.
+            Sprinkle fresh coriander and mint leaves on top. </item>
+        <item> Cover tightly and cook on very low heat for 20–25 minutes to let flavors meld. </item>
+    </string-array>
 
 </resources>
