@@ -9,11 +9,12 @@
         <item name="recipe_five">Lamb Biryani</item>
     </string-array>
 
-    <string name="burrito_description">Description: A delicious, customizable burrito packed
+    <string name="burrito_description">A delicious, customizable burrito packed
         with fluffy rice, savory beans, tender protein, and fresh toppings.
         Perfect for lunch or dinner, it’s easy to make, satisfying, and
         bursting with flavors in every bite. Wrap it up and enjoy a handheld
         meal that’s both hearty and comforting.</string>
+    <string name="ingredients"> Ingredients: </string>
     <string-array name="burrito_ingredients">
         <item> 1 cup black beans (cooked)</item>
         <item> 2 large flour tortillas</item>
@@ -26,6 +27,7 @@
         <item>1 tbsp olive oil </item>
         <item>Salt and pepper to taste </item>
     </string-array>
+    <string name="steps">Steps:</string>
     <string-array name="burrito_steps">
         <item> Heat olive oil in a pan over medium heat.</item>
         <item> Warm tortillas for 20–30 seconds on each side. </item>
